@@ -9,8 +9,10 @@ PRICE = 140
 def getPrice():
     page = requests.get(URL, headers=HEADERS)
     soup = BeautifulSoup(page.content, 'html.parser')
-    title = soup.find(id="productTitle").get_text()
+    title = soup.find(id='productTitle').get_text().strip()
+    price = soup.find(id='priceblock_ourprice').get_text().strip()
     print(title)
+    print(price)
 
 if __name__ == "__main__":
     getPrice()
