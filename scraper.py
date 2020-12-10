@@ -10,7 +10,7 @@ def getPrice():
     page = requests.get(URL, headers=HEADERS)
     soup = BeautifulSoup(page.content, 'html.parser')
     title = soup.find(id='productTitle').get_text().strip()
-    price = soup.find(id='priceblock_ourprice').get_text().strip()
+    price = soup.find(id='priceblock_ourprice').get_text().strip()[1:4]
     print(title)
     print(price)
 
